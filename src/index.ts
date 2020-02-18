@@ -3,7 +3,11 @@ export type ExceptionInfo = {
   timestamp: Date;
 };
 
+export type ExceptionQueryOpts = {
+  timestampOrder?: 'asc' | 'desc';
+};
+
 export interface ExceptionStore {
-  Store(exceptionInfo: ExceptionInfo): Promise<void>;
-  Get(): Promise<ExceptionInfo[]>;
+  store(exceptionInfo: ExceptionInfo): Promise<void>;
+  get(opts?: ExceptionQueryOpts): Promise<ExceptionInfo[]>;
 }
