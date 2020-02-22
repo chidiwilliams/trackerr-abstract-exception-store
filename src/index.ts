@@ -4,12 +4,15 @@ export type ExceptionInfo = {
 };
 
 export type ExceptionGetQueryOpts = {
+  query?: string;
   timestampOrder?: 'asc' | 'desc';
   page?: number;
   limit?: number;
 };
 
-export type ExceptionCountQueryOpts = {};
+export type ExceptionCountQueryOpts = {
+  query?: string;
+};
 
 export interface ExceptionStore {
   store(exceptionInfo: ExceptionInfo): Promise<void>;
